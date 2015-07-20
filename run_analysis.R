@@ -11,14 +11,14 @@ run_analysis<-function(){
   activity_type[,2]<-as.character(activity_type[,2])
   
   #Read in full test set
-  subject_test<-read.table("subject_test.txt")
-  x_test<-read.table("x_test.txt")
-  y_test<-read.table("y_test.txt")
+  subject_test<-read.table("test/subject_test.txt")
+  x_test<-read.table("test/x_test.txt")
+  y_test<-read.table("test/y_test.txt")
   
   #Read in full training set
-  subject_train<-read.table("subject_train.txt")
-  x_train<-read.table("X_train.txt")
-  y_train<-read.table("y_train.txt")
+  subject_train<-read.table("train/subject_train.txt")
+  x_train<-read.table("train/X_train.txt")
+  y_train<-read.table("train/y_train.txt")
   
   #Merge test and training sets
   x_merge<-rbind(x_train,x_test)
@@ -71,5 +71,5 @@ run_analysis<-function(){
   tidy_final<-tidy_final[,-(3:4)]
   
   #Write final tidy tables
-  write.table(tidy_final, file = "getdata_final.txt",row.name=FALSE)
+  write.table(tidy_final, file = "get_data_final.txt",row.name=FALSE)
 }
